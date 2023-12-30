@@ -6,8 +6,10 @@ public class BankingSystem {
         Bank bank = new Bank();
 
         // Adding initial accounts to the bank
-        bank.addAccount("12345", "John Doe", 1000.0);
-        bank.addAccount("67890", "Jane Smith", 2000.0);
+        bank.addAccount("12345", "John Doe",
+         1000.0);
+        bank.addAccount("67890", "Jane Smith",
+         2000.0);
 
         while (true) {
             System.out.println("1. View Account Balance");
@@ -20,24 +22,28 @@ public class BankingSystem {
             BankAccount currentAccount = bank.getAccount(accountNumber);
 
             if (currentAccount == null) {
-                System.out.println("Account not found. Please enter a valid account number.\n");
+                System.out.println("Account not found. " 
+                    + "Please enter a valid account number.\n");
                 continue;
             }
 
-            System.out.println("Welcome, " + currentAccount.getOwner() + "! What would you like to do?");
+            System.out.println("Welcome, " + currentAccount.getOwner()
+             + "! What would you like to do?");
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
 
             switch (choice) {
                 case 1:
-                    System.out.println("Account Balance: " + currentAccount.getBalance() + "\n");
+                    System.out.println("Account Balance: "
+                     + currentAccount.getBalance() + "\n");
                     break;
                 case 2:
                     System.out.print("Enter deposit amount: ");
                     double depositAmount = scanner.nextDouble();
                     currentAccount.deposit(depositAmount);
-                    System.out.println("Deposit successful. Updated balance: " + currentAccount.getBalance() + "\n");
+                    System.out.println("Deposit successful. Updated balance: " 
+                    + currentAccount.getBalance() + "\n");
                     break;
                 case 3:
                     System.out.print("Enter withdrawal amount: ");
@@ -45,7 +51,7 @@ public class BankingSystem {
                     currentAccount.withdraw(withdrawalAmount);
                     break;
                 case 4:
-                    System.out.println("Thank you for using the banking system. Goodbye!");
+                    System.out.println("Thank you for using banking system!");
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice. Please try again.\n");
